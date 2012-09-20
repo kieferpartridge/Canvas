@@ -97,6 +97,13 @@ a {
       color: darken($lightgrey, 24%);
     }
   }
+
+  h1, h2 {
+
+    &:hover {
+      color: $green;
+    }
+  }
 }
 
 i {
@@ -283,13 +290,15 @@ div.switcher {
     a {
       margin-right: 20px;
       font-size: 14px;
+      line-height: 40px;
+      display: inline-block;
 
       &:hover, &.current, &.hide {
         color: $blue;
       }
 
       &.icon {
-        color: lighten($medgrey, 24%);
+        line-height: 4px;
       }
 
      &.dropdown {
@@ -302,7 +311,7 @@ div.switcher {
           height: 10px;
           line-height: 10px;
           line-height: 8px;
-          top: 5px;
+          top: 14px;
           right: -4px;
 
           -webkit-transform: rotate(90deg);
@@ -321,6 +330,37 @@ div.switcher {
             -o-transform: rotate(-90deg);
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
           }
+        }
+      }
+    }
+
+    form {
+      width: 200px;
+
+      a.icon {
+        position: absolute;
+        left: 10px;
+        top: 4px;
+        z-index: 1;
+
+        &:hover {
+
+          & + input {
+            opacity: 1;
+          }
+        }
+      }
+
+      input {
+        @include border-radius(17.5px);
+        background: white;
+        border: 1px solid white;
+        padding-left: 40px;
+        // opacity: 0;
+
+        &:focus {
+          background: white;
+          border: 1px solid $blue;
         }
       }
     }
@@ -371,18 +411,21 @@ div.switcher {
       background: white;
       height: 0;
       overflow: hidden;
-      margin: 0 20px;
+      text-align: center;
 
       &.show {
-        height: 100px;
+        height: 40px;
         padding: 20px 0 0 0;
       }
 
       a {
-        font-size: 12px;
+        color: $blue;
+        margin: 0 5px 20px 5px;
+        font-size: 11px!important;
+        text-transform: uppercase;
 
-        &:hover {
-          color: $blue;
+        &:hover, &.current {
+          color: $green;
         }
 
         &:active {
@@ -424,6 +467,7 @@ div.switcher {
 
 .main {
   width: 100%;
+  z-index: 1;
 }
 
 .block {
