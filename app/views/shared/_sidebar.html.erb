@@ -1,0 +1,56 @@
+
+<div class="side">
+  <div class="paper">
+    <a href="#" class="close">&times;</a>
+    <div class="header">
+      <h2>Edit student profile</h2>
+    </div>
+
+    <form>
+      <div class="group">
+        <label for="student_first_name">First name</label>
+        <input name="student[first_name]" type="text" value="John">
+
+        <label for="student_middle_initial">Middle initial</label>
+        <input name="student[middle_initial]" type="text" value="B">
+
+        <label for="student_last_name">Last name</label>
+        <input name="student[last_name]" type="text" value="Donner">
+
+        <label for="student_birthday">Birth date</label>
+        <input name="student[datepicker_birthday]" type="text" value="09/24/1991">
+      </div>
+      <div class="group">
+        <div class="checkbox">
+          <label class="selected" for="student_gender_m">Male</label>
+          <input checked="checked" name="student[gender]" type="radio" value="M">
+
+          <label for="student_gender_f">Female</label>
+          <input name="student[gender]" type="radio" value="F">
+        </div>
+        <div class="checkbox">
+          <label for="student_married_t">Married</label>
+          <input name="student[married]" type="radio" value="true">
+
+          <label class="selected" for="student_married_t">Unmarried</label>
+          <input checked="checked" name="student[married]" type="radio" value="false">
+        </div>
+      </div>
+      <div class="group">
+        <div class="select">
+          <label for="student_learning_style">Learning style</label>
+          <select name="student[learning_style]">
+            <option value="Auditory" selected="selected">Auditory</option>
+            <option value="Visual">Visual</option>
+            <option value="Kinesthetic">Kinesthetic</option>
+          </select>
+        </div>
+
+        <label for="student_extracurricular">Activities</label>
+        <input name="student[extracurricular]" type="text" value="Rock climbing, bungee jumping">
+      </div>
+
+      <input name="commit" type="submit" value="Update Student">
+    </form>
+  </div>
+</div>
