@@ -638,11 +638,11 @@ div.switcher {
     height: 100%;
   }
 
-  &.six {
+  &.three {
 
     .column {
-      width: 12.666666667%;
-      margin-right: 4.8%;
+      width: 29.333333333%;
+      margin-right: 4%;
 
       &:last-child {
         margin-right: 0;
@@ -650,11 +650,23 @@ div.switcher {
     }
   }
 
-  &.three {
+  &.five {
 
     .column {
-      width: 29.333333333%;
-      margin-right: 4%;
+      width: 16%;
+      margin-right: 5%;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.six {
+
+    .column {
+      width: 12.666666667%;
+      margin-right: 4.8%;
 
       &:last-child {
         margin-right: 0;
@@ -733,9 +745,10 @@ form {
       display: inline-block;
       width: 100%;
       clear: both;
-      font-size: 12px;
+      font-size: 11px;
       margin: 20px 0 0 0;
       padding: 10px 20px;
+      text-transform: uppercase;
 
       &:hover {
         background: darken($green, 4%);
