@@ -1,0 +1,772 @@
+$lightgrey: darken(white, 4%);
+$medgrey: darken(white, 60%);
+$darkgrey: darken(white, 80%);
+
+$red: #D86B6C;
+$green: #439269;
+$blue: #89ABCB;
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin content-box {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin box-shadow($horizontal, $vertical, $blur, $color) {
+  box-shadow: $horizontal $vertical $blur $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+}
+
+@mixin dropdown {
+  @include border-radius(50%);
+  content: "\203A";
+  display: block;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  line-height: 8px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  right: -8px;
+}
+
+* {
+  position: relative;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  transition: width 0.2s, height 0.2s, opacity, 0.2s, margin 0.2s, color 0.2s, background 0.2s;
+  -moz-transition: width 0.2s, height 0.2s, opacity, 0.2s, margin 0.2s, color 0.2s, background 0.2s;
+  -webkit-transition: width 0.2s, height 0.2s, opacity, 0.2s, margin 0.2s, color 0.2s, background 0.2s;
+  -o-transition: width 0.2s, height 0.2s, opacity, 0.2s, margin 0.2s, color 0.2s, background 0.2s;
+}
+
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}
+
+.red {
+  color: $red;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+
+  &:hover {
+    color: $blue;
+  }
+
+  &.close {
+    color: darken($lightgrey, 14%);
+    display: inline-block;
+    font-weight: normal;
+    font-size: 20px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    text-align: center;
+    z-index: 1;
+
+    &:hover {
+      color: darken($lightgrey, 24%);
+    }
+  }
+}
+
+i {
+  display: inline-block;
+  line-height: 0px;
+  padding-right: 10px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+p strong {
+  font-weight: normal;
+}
+
+p em {
+  font-style: italic;
+}
+
+.small {
+  font-size: 11px;
+}
+
+.right {
+  float: right;
+}
+
+h1, h2, h3, h4, h5 {
+  clear: both;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  color: $blue;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+h5 {
+  font-size: 12px;
+  clear: none;
+  width: auto;
+  display: inline;
+}
+
+.label {
+
+  background: $lightgrey;
+  padding: 2px 6px;
+
+  &.blue {
+    background: $blue;
+    color: white;
+  }
+
+  & + .list {
+    margin-left: 10px;
+  }
+}
+
+body {
+  background: $lightgrey;
+  color: $medgrey;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  &.switcher {
+    top: 220px;
+
+    div.switcher {
+      top: 0;
+    }
+
+    a.switcher, .side {
+      top: 220px;
+    }
+  }
+}
+
+div.switcher {
+  position: fixed;
+  top: -220px;
+  height: 220px;
+  width: 100%;
+  padding: 40px;
+  background: darken($lightgrey, 4%);
+
+  a {
+    font-size: 12px;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:active {
+      color: darken($blue, 4%);
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: -90%;
+  left: 50%;
+  width: 700px;
+  margin-left: -350px;
+  z-index: 100;
+  height: 80%;
+
+  &::before {
+    content: "";
+    background: rgba(255,255,255,0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: -110%;
+    left: 0;
+    z-index: -1;
+  }
+
+  &.show {
+    top: 0;
+
+    &::before {
+      top: 0;
+    }
+  }
+
+  .paper {
+    border-radius: 0 0 2px 2px;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+  }
+
+  .header {
+    border-bottom: 1px solid $lightgrey;
+    margin: -40px -40px 40px -40px;
+    @include content-box;
+    padding: 40px 40px 20px 40px;
+  }
+}
+
+.side, .main {
+  padding: 80px 40px 40px 40px;
+  height: 100%;
+
+  .nav {
+    height: 80px;
+    line-height: 40px;
+    margin-top: -80px;
+    padding: 20px 0;
+
+    a {
+      margin-right: 20px;
+      font-size: 14px;
+
+      &:hover, &.current, &.hide {
+        color: $blue;
+      }
+
+      &.icon {
+        color: lighten($medgrey, 24%);
+      }
+
+     &.dropdown {
+      padding-right: 14px;
+
+        &::after {
+          @include dropdown;
+          border: none;
+          width: 10px;
+          height: 10px;
+          line-height: 10px;
+          line-height: 8px;
+          top: 5px;
+          right: -4px;
+
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+        &#switcher {
+
+          &::after {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    border-bottom: 1px solid $lightgrey;
+    margin: -40px -40px 40px -40px;
+    @include content-box;
+    padding: 40px 40px 20px 40px;
+
+    .dropdown {
+      @include dropdown;
+      border: 2px solid darken($lightgrey, 14%);
+      color: darken($lightgrey, 14%);
+      font-family: "Typicons", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -o-transform: scale(1);
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      line-height: 42px;
+      top: 20px;
+      right: 0;
+      z-index: 2;
+
+      &:hover {
+        color: darken($lightgrey, 24%);
+        border: 2px solid darken($lightgrey, 24%);
+      }
+
+      &:active {
+        color: darken($lightgrey, 34%);
+        border: 2px solid darken($lightgrey, 34%);
+      }
+
+      &.hide {
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+      }
+    }
+
+    .menu {
+      width: 100%;
+      background: white;
+      height: 0;
+      overflow: hidden;
+      margin: 0 20px;
+
+      &.show {
+        height: 100px;
+        padding: 20px 0 0 0;
+      }
+
+      a {
+        font-size: 12px;
+
+        &:hover {
+          color: $blue;
+        }
+
+        &:active {
+          color: darken($blue, 4%);
+        }
+      }
+    }
+  }
+}
+
+.paper {
+  background: white;
+  @include border-radius(2px);
+  @include box-shadow(0px,0px,4px,lighten($medgrey, 20%));
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.side {
+  width: 480px;
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+
+  & + .main {
+    width: auto;
+    margin-right: 440px;
+  }
+}
+
+.main {
+  width: 100%;
+}
+
+.block {
+  background: $lightgrey;
+  display: inline-block;
+  margin-bottom: 1px;
+  padding: 20px;
+  width: 100%;
+  font-size: 12px;
+
+  &.fade {
+    background: none;
+    border: 1px dashed $lightgrey;
+  }
+
+  a {
+    line-height: 20px;
+  }
+
+  h3 {
+    color: $blue;
+  }
+
+  & + h4 {
+    padding-top: 20px;
+  }
+}
+
+.list {
+
+  a {
+    display: block;
+    clear: both;
+  }
+
+  .label {
+    color: inherit;
+    background: none;
+    padding: 0;
+    line-height: 20px;
+
+    &::after {
+      content: "/";
+      margin: 0 10px;
+    }
+
+    &:last-child {
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.indent {
+  padding-left: 40px;
+  border-left: 1px dashed $blue;
+
+  & + h3 {
+    padding-top: 20px;
+  }
+}
+
+.grid {
+  display: inline-block;
+  width: 100%;
+
+  .block {
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+
+  &.two {
+
+    .block {
+      width: 48%;
+      margin-right: 2%;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(3n) {
+        clear: left;
+      }
+    }
+  }
+
+  &.three {
+
+    .block {
+      width: 30.333333%;
+      margin-right: 3%;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(4n) {
+        clear: left;
+      }
+    }
+  }
+
+  &.four {
+
+    .block {
+      width: 21.75%;
+      margin-right: 3%;
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(5n) {
+        clear: left;
+      }
+
+
+      &.three {
+        width: 74.25%;
+
+        & + .block {
+          margin-right: 0;
+        }
+
+        .side {
+          font-size: 1.2em;
+          float: left;
+          width: 40%;
+
+          & + .group {
+            float: right;
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.five {
+
+    .block {
+      width: 18.4%;
+      margin-right: 2%;
+
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(6n) {
+        clear: left;
+      }
+    }
+  }
+}
+
+.columns {
+
+  .column {
+    float: left;
+    height: 100%;
+  }
+
+  &.six {
+
+    .column {
+      width: 12.666666667%;
+      margin-right: 4.8%;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.three {
+
+    .column {
+      width: 29.333333333%;
+      margin-right: 4%;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.list {
+
+    p, a {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0;
+
+  p {
+    font-size: 10px;
+
+    a {
+      margin: 0 10px;
+    }
+  }
+}
+
+form {
+
+  * {
+    color: $medgrey;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  label {
+    background: $lightgrey;
+    padding: 11.5px 20px;
+    color: $blue;
+    display: inline-block;
+    float: left;
+    width: 40%;
+
+      & + input[type="text"], & + input[type="email"], & + input[type="password"] {
+        width: 60%;
+      }
+  }
+
+  input {
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0;
+
+    &[type="text"], &[type="email"], &[type="password"] {
+      background: $lightgrey;
+      clear: both;
+      width: 100%;
+      padding: 10px 20px;
+      margin: 0 0 1px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:focus {
+        background: darken($lightgrey, 4%);
+      }
+    }
+
+    &[type="submit"] {
+      color: white;
+      cursor: pointer;
+      background: $green;
+      display: inline-block;
+      width: 100%;
+      clear: both;
+      font-size: 12px;
+      margin: 20px 0 0 0;
+      padding: 10px 20px;
+
+      &:hover {
+        background: darken($green, 4%);
+      }
+
+      &:active {
+        background: darken($green, 8%);
+      }
+    }
+  }
+
+  select {
+    width: 100%;
+    clear: both;
+    margin: 10px 0;
+  }
+
+  .group {
+    display: inline-block;
+    padding: 0 0 20px 0;
+    width: 100%;
+
+    &:last-of-type {
+      padding: 0;
+    }
+  }
+
+  .select {
+    background: $lightgrey;
+    margin-bottom: 1px;
+
+    select {
+      width: 48%;
+      margin: 10px 6%;
+    }
+  }
+
+  .checkbox {
+
+    label {
+      width: 50%;
+      margin-bottom: 1px;
+      border-right: 1px solid white;
+      color: $medgrey;
+
+      &:hover {
+        cursor: pointer;
+        background: darken($lightgrey, 4%);
+      }
+
+      &:active {
+        background: darken($lightgrey, 8%);
+      }
+
+      &.selected {
+
+        &::after {
+          font-family: "Typicons", sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -o-transform: scale(1);
+          font-size: 16px;
+          content: "g";
+          color: $green;
+          position: absolute;
+          right: 10px;
+          top: 14px;
+        }
+      }
+    }
+
+    input {
+
+      &[type="checkbox"], &[type="radio"] {
+        display: none;
+      }
+    }
+  }
+}

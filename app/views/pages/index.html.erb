@@ -1,0 +1,379 @@
+<!-- <a href="#" class="close show" id="modal">&times;</a> -->
+
+<!-- <div class="modal">
+  <div class="paper">
+    <div class="header">
+      <a href="" class="close">&times;</a>
+      <div class="wrap">
+        <h1>John Donner</h1>
+        <h2>TESC: BA Communications</h2>
+      </div>
+    </div>
+
+    <div class="wrap">
+
+    </div>
+  </div>
+</div>
+ -->
+<div class="switcher">
+  <div class="wrap">
+    <div class="columns six list">
+      <div class="column">
+        <!-- <h4 class="blue">All</h4> -->
+        <a href="http://bloomfire-proxy.collegeplusapp.com">Bloomfire</a>
+        <a href="https://passport.collegeplusapp.com">Passport</a>
+        <a href="https://time-tracker.collegeplusapp.com">Time Tracker</a>
+      </div>
+      <div class="column">
+        <!-- <h4 class="blue">CollegePlus</h4> -->
+        <a href="http://experience.collegeplus.org/admin">Assessify</a>
+        <a href="https://degree-manager.collegeplusapp.com/admin">Degree Manager</a>
+        <a href="https://life-purpose.collegeplusapp.com/admin">Life Purpose</a>
+        <a href="https://mycp.collegeplusapp.com/admin/dashboards">myCollegePlus</a>
+        <a href="https://walkman.herokuapp.com">Walkman</a>
+      </div>
+      <div class="column">
+        <!-- <h4 class="blue">CollegePrep</h4> -->
+        <a href="https://course-planner.collegeplusapp.com/admin">Course Planner</a>
+        <a href="https://critical-reasoning.collegeplusapp.com/admin/students">Critical Reasoning</a>
+        <a href="https://flashcards.collegeplusapp.com/admin">Flashcards</a>
+      </div>
+      <div class="column">
+        <!-- <h4 class="blue">Interns</h4> -->
+        <a href="https://cplibrary.herokuapp.com">Library</a>
+        <a href="http://lunchbox.collegeplusapp.com">Lunchbox</a>
+      </div>
+      <div class="column">
+        <!-- <h4 class="blue">IT</h4> -->
+        <a href="http://spectatorapp.herokuapp.com">Spectator</a>
+        <a href="https://sqlsnip.collegeplusapp.com">SQLSnip</a>
+      </div>
+      <div class="column">
+        <a href="/admin/logout/passport" data-method="delete" rel="nofollow">Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="side">
+  <div class="paper">
+    <a href="#" class="close">&times;</a>
+    <div class="header">
+      <h2>Edit student profile</h2>
+    </div>
+
+    <form>
+      <div class="group">
+        <label for="student_first_name">First name</label>
+        <input name="student[first_name]" type="text" value="John">
+
+        <label for="student_middle_initial">Middle initial</label>
+        <input name="student[middle_initial]" type="text" value="B">
+
+        <label for="student_last_name">Last name</label>
+        <input name="student[last_name]" type="text" value="Donner">
+
+        <label for="student_birthday">Birth date</label>
+        <input name="student[datepicker_birthday]" type="text" value="09/24/1991">
+      </div>
+      <div class="group">
+        <div class="checkbox">
+          <label class="selected" for="student_gender_m">Male</label>
+          <input checked="checked" name="student[gender]" type="radio" value="M">
+
+          <label for="student_gender_f">Female</label>
+          <input name="student[gender]" type="radio" value="F">
+        </div>
+        <div class="checkbox">
+          <label for="student_married_t">Married</label>
+          <input name="student[married]" type="radio" value="true">
+
+          <label class="selected" for="student_married_t">Unmarried</label>
+          <input checked="checked" name="student[married]" type="radio" value="false">
+        </div>
+      </div>
+      <div class="group">
+        <div class="select">
+          <label for="student_learning_style">Learning style</label>
+          <select name="student[learning_style]">
+            <option value="Auditory" selected="selected">Auditory</option>
+            <option value="Visual">Visual</option>
+            <option value="Kinesthetic">Kinesthetic</option>
+          </select>
+        </div>
+
+        <label for="student_extracurricular">Activities</label>
+        <input name="student[extracurricular]" type="text" value="Rock climbing, bungee jumping">
+      </div>
+
+      <input name="commit" type="submit" value="Update Student">
+    </form>
+  </div>
+</div>
+
+<div class="main">
+  <div class="nav wrap">
+    <a href="#" id="switcher" class="dropdown show">Apps</a>
+    <a href="">Dashboard</a>
+    <a href="" class="dropdown">Coaches</a>
+    <a href="" class="dropdown current">Students</a>
+    <a href="" class="dropdown">Billing</a>
+    <a href="">Admin</a>
+    <a href="" class="icon search"></a>
+  </div>
+
+  <div class="paper">
+    <div class="header">
+
+      <div class="wrap">
+        <h1>John Donner</h1>
+        <h2>TESC: BA Communications</h2>
+        <a href="#" class="dropdown show" id="menu">H</a>
+
+        <div class="menu">
+          <div class="columns three list">
+            <div class="column">
+              <a href="https://mycp.collegeplusapp.com/admin/students/2200/#tabs-personal">John&apos;s profile</a>
+              <a href="https://mycp.collegeplusapp.com/admin/students/2200/#tabs-notes">Notes</a>
+            </div>
+            <div class="column">
+              <a href="/admin/students/2200/degree_plans/show">Degree Plan</a>
+              <a href="/admin/students/2200/course_timings">Course Timing</a>
+              <a href="/admin/students/2200/statistics">Statistics</a>
+            </div>
+            <div class="column">
+              <a href="/admin/students/2200/degree_plans/edit">Edit Degree Plan</a>
+              <a href="/admin/students/2200/degree_plans/new">New Degree Plan</a>
+              <a href="https://spreadsheets.google.com/a/collegeplus.org/spreadsheet/viewform?formkey=dHBFOWdtZ2ljeHRCNmtxeVcydy1BZnc6MQ&amp;entry_0=kiefer.partridge@collegeplus.org&amp;entry_1=Kiefer Partridge&amp;entry_2=https://degree-manager.collegeplusapp.com/admin/students/2200/degree_plans/show">Request Update</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content wrap">
+      <h3 class="green">General Education Requirements
+        <span class="right small list">
+          <span class="label">60.00 earned</span>
+          <span class="label">60.00 allocated</span>
+          <span class="label">60.00 required</span>
+        </span>
+      </h3>
+
+      <div class="indent">
+        <h4>Composition
+          <span class="right small list">
+            <span class="label">6.00 earned</span>
+            <span class="label">6.00 allocated</span>
+            <span class="label">6.00 required</span>
+          </span>
+        </h4>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon times red"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon unknown blue"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon shuffle"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <h3 class="green">General Education Requirements
+        <span class="right small list">
+          <span class="label">60.00 earned</span>
+          <span class="label">60.00 allocated</span>
+          <span class="label">60.00 required</span>
+        </span>
+      </h3>
+
+      <div class="indent">
+        <h4>Composition
+          <span class="right small list">
+            <span class="label">6.00 earned</span>
+            <span class="label">6.00 allocated</span>
+            <span class="label">6.00 required</span>
+          </span>
+        </h4>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <h4>Composition
+          <span class="right small list">
+            <span class="label">6.00 earned</span>
+            <span class="label">6.00 allocated</span>
+            <span class="label">6.00 required</span>
+          </span>
+        </h4>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="block">
+          <i class="icon tick green"></i>
+          <a href="">College Composition</a>
+          <span class="right small">
+            <i class="icon message"></i>
+            <span class="list">
+              <span class="label">CLEP</span>
+              <span class="label">ENC 101/102 CE</span>
+              <span class="label">$80.00</span>
+              <span class="label">6.00 credits</span>
+            </span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <p class="wrap">&copy; CollegePlus 2012
+      <a href="">Report Bugs</a>
+      <a href="">Re-sync with Passport</a>
+    </p>
+  </div>
+</div>
