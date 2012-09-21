@@ -357,7 +357,7 @@ div.switcher {
         @include box-shadow(0px,0px,4px,lighten($medgrey, 20%));
         position: absolute;
         top: 60px;
-        z-index: 1;
+        z-index: 10;
         width: 160px;
         height: 0;
         overflow: hidden;
@@ -539,6 +539,13 @@ span.gridswitch {
       line-height: 24px;
       color: darken($lightgrey, 20%);
       font-size: 24px;
+    }
+
+    &:hover {
+
+      &::before {
+        color: $green;
+      }
     }
   }
 }
