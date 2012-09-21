@@ -164,10 +164,15 @@ h2 {
 
 h3 {
   font-size: 16px;
+  padding-bottom: 40px;
 }
 
 h4 {
   font-size: 14px;
+
+  & + .block {
+    margin-top: 0;
+  }
 }
 
 h5 {
@@ -321,6 +326,17 @@ div.switcher {
           filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         }
 
+        &:hover {
+
+          & + span {
+
+            &.dropdown {
+              opacity: 1;
+              height: auto;
+            }
+          }
+        }
+
         &#switcher {
 
           &::after {
@@ -330,6 +346,38 @@ div.switcher {
             -o-transform: rotate(-90deg);
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
           }
+        }
+      }
+    }
+
+    span {
+
+      &.dropdown {
+        @include border-radius(2px);
+        @include box-shadow(0px,0px,4px,lighten($medgrey, 20%));
+        position: absolute;
+        top: 60px;
+        z-index: 1;
+        width: 160px;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-left: -130px;
+        background: white;
+        display: inline-block;
+
+        &:hover {
+          opacity: 1;
+          height: auto;
+        }
+
+        a {
+          font-size: 11px;
+          padding: 0 20px;
+          margin: 0;
+          width: 100%;
+          clear: both;
+          border-bottom: 1px solid $lightgrey;
         }
       }
     }
@@ -383,8 +431,11 @@ div.switcher {
       width: 40px;
       height: 40px;
       line-height: 42px;
-      top: 20px;
-      right: 0;
+      margin-left: 10px;
+      top: auto;
+      right: auto;
+      display: inline-block;
+      position: relative;
       z-index: 2;
 
       &:hover {
@@ -418,10 +469,12 @@ div.switcher {
         padding: 20px 0 0 0;
       }
 
-      a {
-        margin: 0 5px 20px 5px;
+      a, span {
         font-size: 11px!important;
-        text-transform: uppercase;
+        margin: 0 5px 20px 5px;
+      }
+
+      a {
 
         &:hover, &.current {
           color: $blue;
@@ -430,6 +483,10 @@ div.switcher {
         &:active {
           color: darken($blue, 4%);
         }
+      }
+
+      span {
+        margin-left: 40px;
       }
     }
   }
@@ -469,17 +526,63 @@ div.switcher {
   z-index: 1;
 }
 
+span.gridswitch {
+  position: absolute;
+  top: -30px;
+  right: 0;
+
+  a {
+    width: 100%;
+    clear: both;
+
+    &::before {
+      line-height: 24px;
+      color: darken($lightgrey, 20%);
+      font-size: 24px;
+    }
+  }
+}
+
 .block {
   background: $lightgrey;
   display: inline-block;
-  margin-bottom: 1px;
+  margin: 20px 0 0 0;
   padding: 20px;
   width: 100%;
   font-size: 12px;
 
+  &:first-child {
+    margin-top: 0;
+  }
+
   &.fade {
     background: none;
-    border: 1px dashed $lightgrey;
+
+    a {
+      @include border-radius(2px);
+      background: $lightgrey;
+      @include content-box;
+      width: 100%;
+      height: 100%;
+      margin: -20px;
+      padding: 20px;
+      display: inline-block;
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+
+      i {
+        padding-bottom: 0px;
+      }
+
+      &:hover {
+        color: $blue;
+
+        i {
+          color: $blue;
+        }
+      }
+    }
   }
 
   a {
@@ -527,35 +630,107 @@ div.switcher {
   border-left: 1px dashed $blue;
 
   & + h3 {
-    padding-top: 20px;
+    padding-top: 40px;
   }
 }
 
-.grid {
+div.grid {
   display: inline-block;
   width: 100%;
 
   .block {
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin: 20px 0 0 0;
+    border-right: 20px solid white;
+    float: left;
 
-    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-      margin-top: 0;
+    .icon {
+      width: 100%;
+      clear: both;
+      text-align: center;
+      padding: 0 0 20px 0;
+
+      &::before {
+        line-height: 24px;
+        font-size: 24px;
+      }
+
+      & + a {
+        width: 100%;
+        clear: both;
+        display: inline-block;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+
+    .right {
+      float: none;
+      width: 100%;
+    }
+
+    .label {
+      clear: both;
+      width: 100%;
+      padding: 2px 4px 2px 0;
+      display: inline-block;
+      line-height: 16px;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &.fade {
+
+      a {
+
+        i {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  &.match {
+
+    .block {
+      overflow-y: auto;
+    }
+
+    &.small {
+
+      .block {
+        height: 200px;
+      }
+    }
+
+    &.med {
+
+      .block {
+        height: 400px;
+      }
+    }
+
+    &.large {
+
+      .block {
+        height: 600px;
+      }
     }
   }
 
   &.two {
 
     .block {
-      width: 48%;
-      margin-right: 2%;
+      width: 50%;
 
-      &:nth-child(2n) {
-        margin-right: 0;
+      &:nth-child(1), &:nth-child(2) {
+        margin-top: 0;
       }
 
-      &:nth-child(3n) {
-        clear: left;
+      &:nth-child(2n) {
+        border-right: 0;
+        float: right;
       }
     }
   }
@@ -563,15 +738,15 @@ div.switcher {
   &.three {
 
     .block {
-      width: 30.333333%;
-      margin-right: 3%;
+      width: 33.333333%;
 
-      &:nth-child(3n) {
-        margin-right: 0;
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        margin-top: 0;
       }
 
-      &:nth-child(4n) {
-        clear: left;
+      &:nth-child(3n) {
+        border-right: 0;
+        float: right;
       }
     }
   }
@@ -579,17 +754,16 @@ div.switcher {
   &.four {
 
     .block {
-      width: 21.75%;
-      margin-right: 3%;
+      width: 25%;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        margin-top: 0;
+      }
 
       &:nth-child(4n) {
-        margin-right: 0;
+        border-right: 0;
+        float: right;
       }
-
-      &:nth-child(5n) {
-        clear: left;
-      }
-
 
       &.three {
         width: 74.25%;
@@ -616,15 +790,15 @@ div.switcher {
   &.five {
 
     .block {
-      width: 18.4%;
-      margin-right: 2%;
+      width: 20%;
 
-      &:nth-child(5n) {
-        margin-right: 0;
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+        margin-top: 0;
       }
 
-      &:nth-child(6n) {
-        clear: left;
+      &:nth-child(5n) {
+        border-right: 0;
+        float: right;
       }
     }
   }
