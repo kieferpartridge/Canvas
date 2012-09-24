@@ -384,14 +384,17 @@ div.switcher {
 
     form {
       width: 200px;
+      position: relative;
+      display: inline-block;
 
       a.icon {
         position: absolute;
-        left: 10px;
-        top: 4px;
+        left: 5px;
+        top: 22px;
         z-index: 1;
 
         &:hover {
+          color: inherit;
 
           & + input {
             opacity: 1;
@@ -402,13 +405,18 @@ div.switcher {
       input {
         @include border-radius(17.5px);
         background: white;
-        border: 1px solid white;
         padding-left: 40px;
-        // opacity: 0;
+        opacity: 0;
+        padding: 2px 4px 2px 25px;
+        line-height: 21px;
+
+        &:hover {
+          opacity: 1;
+        }
 
         &:focus {
           background: white;
-          border: 1px solid $blue;
+          opacity: 1;
         }
       }
     }
@@ -510,9 +518,6 @@ div.switcher {
 .side {
   width: 480px;
   float: right;
-  position: fixed;
-  right: 0;
-  top: 0;
   height: 100%;
 
   & + .main {
@@ -901,6 +906,11 @@ form {
     outline: none;
     padding: none;
     margin: 0;
+
+
+    &::-webkit-input-placeholder, &::-moz-placeholder {
+      font-size: 10px;
+    }
 
     &[type="text"], &[type="email"], &[type="password"] {
       background: $lightgrey;

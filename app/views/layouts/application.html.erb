@@ -9,11 +9,13 @@
 <body>
 
 <%= render 'shared/switcher' %>
-<%= render 'shared/sidebar' %>
+<%#= render 'shared/sidebar' %>
 
 <div class="main">
   <%= render 'shared/nav' %>
-  <%= yield %>
+  <div class="paper">
+    <%= yield %>
+  </div>
   <%= render 'shared/footer' %>
 </div>
 
