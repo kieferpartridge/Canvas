@@ -5,6 +5,7 @@ Canvas::Application.routes.draw do
   # Sample of regular route:
   get '/', :to => "pages#index"
   get '/show', :to => "pages#show"
+  get '/show/degree_plan', :to => "pages#degree_plan"
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

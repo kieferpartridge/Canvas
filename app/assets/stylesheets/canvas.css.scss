@@ -115,6 +115,7 @@ i {
 p {
   font-size: 14px;
   line-height: 20px;
+  word-wrap: break-word;
 
   a {
     text-decoration: underline;
@@ -123,14 +124,18 @@ p {
       text-decoration: none;
     }
   }
-}
 
-p strong {
-  font-weight: normal;
-}
+  strong {
+    font-weight: normal;
+  }
 
-p em {
-  font-style: italic;
+  em {
+    font-style: italic;
+  }
+
+  & + h3 {
+    padding: 20px 0;
+  }
 }
 
 .small {
@@ -164,7 +169,7 @@ h2 {
 
 h3 {
   font-size: 16px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 h4 {
