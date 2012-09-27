@@ -169,16 +169,17 @@ h1, h2 {
 h1 {
   color: $blue;
   font-size: 30px;
-  line-height: 30px;
+  line-height: 34px;
 }
 
 h2 {
   font-size: 20px;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 h3 {
   font-size: 16px;
+  line-height: 20px;
   padding-bottom: 20px;
 }
 
@@ -611,6 +612,10 @@ span.gridswitch {
     }
   }
 
+  & + .grid {
+    margin-top: 20px;
+  }
+
   a {
     line-height: 20px;
   }
@@ -656,7 +661,7 @@ span.gridswitch {
   border-left: 1px dashed $blue;
 
   & + h3 {
-    padding-top: 40px;
+    padding: 40px 0 20px 0;
   }
 }
 
@@ -664,12 +669,20 @@ div.grid {
   display: inline-block;
   width: 100%;
 
+  & + .grid {
+    margin-top: 20px;
+  }
+
+  & + h3 {
+    padding: 40px 0 20px 0;
+  }
+
   .block {
     margin: 20px 0 0 0;
     border-right: 20px solid white;
     float: left;
 
-    .icon {
+    .icon:not(.icon) {
       width: 100%;
       clear: both;
       text-align: center;
@@ -758,6 +771,10 @@ div.grid {
         border-right: 0;
         float: right;
       }
+
+      &:nth-child(3n) {
+        clear: left;
+      }
     }
   }
 
@@ -773,6 +790,10 @@ div.grid {
       &:nth-child(3n) {
         border-right: 0;
         float: right;
+      }
+
+      &:nth-child(4n) {
+        clear: left;
       }
     }
   }
@@ -791,11 +812,15 @@ div.grid {
         float: right;
       }
 
+      &:nth-child(5n) {
+        clear: left;
+      }
+
       &.three {
-        width: 74.25%;
+        width: 75%;
 
         & + .block {
-          margin-right: 0;
+          border-right: 0;
         }
 
         .side {
@@ -826,6 +851,10 @@ div.grid {
         border-right: 0;
         float: right;
       }
+
+      &:nth-child(6n) {
+        clear: left;
+      }
     }
   }
 }
@@ -833,43 +862,38 @@ div.grid {
 .columns {
 
   .column {
+    @include border-box;
     float: left;
     height: 100%;
+    border-right: 20px solid transparent;
+
+    &:last-child {
+      border-right: 0;
+      float: right;
+    }
   }
 
   &.three {
-
     .column {
-      width: 29.333333333%;
-      margin-right: 4%;
+      width: 33.3333333%;
+    }
+  }
 
-      &:last-child {
-        margin-right: 0;
-      }
+  &.four {
+    .column {
+      width: 25%;
     }
   }
 
   &.five {
-
     .column {
-      width: 16%;
-      margin-right: 5%;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      width: 20%;
     }
   }
 
   &.six {
-
     .column {
-      width: 12.666666667%;
-      margin-right: 4.8%;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      width: 16.666666667%;
     }
   }
 
