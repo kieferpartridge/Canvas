@@ -825,10 +825,10 @@ div.grid {
       }
 
       &.three {
-        width: 75%;
+        width: 76.67%;
 
         & + .block {
-          border-right: 0;
+          margin-right: -20px;
         }
 
         .side {
